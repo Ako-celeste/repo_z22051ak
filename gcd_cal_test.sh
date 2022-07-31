@@ -5,7 +5,7 @@
 
 
 #引数の数をチェック（２個かどうか）
-if [ $#!=1 ]; then
+if [ $#! = 1 ]; then
     echo "args count error!" > /tmp/$$-ans
 　　exit 1
 else
