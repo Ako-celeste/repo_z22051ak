@@ -1,7 +1,9 @@
 #!/bin/bash
 
+./gcd_cal.sh > /tmp/$$-result
 
 tmp=/tmp/$$
+
 echo "input 2 argments" > $tmp-args
 echo "two numbers are the same" > $tmp-same
 
