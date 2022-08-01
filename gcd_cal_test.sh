@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 
 
 tmp=/tmp/$$
@@ -14,12 +14,15 @@ ERROR_EXIT() {
 
 
 #テスト１引数の数をチェック（２個かどうか）
-./gcd_cal.sh $1 > $tmp-ans && ERROR_EXIT "error in test1-1"
+./gcd_cal.sh 2 > $tmp-ans && ERROR_EXIT "error in test1-1"
 diff $tmp-ans $tmp-args || ERROR_EXIT "error in test1-2"
  
 
 
 #テスト２入力した引数が同じ数値でないかどうか
-./gcd_cal.sh [$1 -eq $2] > $tmp-ans
-diff $tmp-ans $tmp-same || ERROR_EXIT "error in test2"
+./gcd_cal.sh 2 2 > $tmp-ans && ERROR_EXIT "error in test2-1"
+diff $tmp-ans $tmp-same || ERROR_EXIT "error in test2-2"
+
+
+
    
