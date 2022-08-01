@@ -1,32 +1,40 @@
 #!/bin/bash
 
 
-#２つの数字を入力
-echo gcdを算出します。２つの数字を入力し、間にスペースを入れてください
-
-read a b
-
-        m=$a
-
-#bがmより小さい値かチェックする
-#イエスの場合mに新しい値を代入する
-if [ $b -lt $m ]
-then
-	m=$b
+#引数の数が２でない場合
+if [ $# -ne 2 ]; then
+       echo "input 2 argments" 1>&2
+       exit 1
 fi
 
-while [[ $m -ne 0 ]]
+#同じ数字かどうか
+if [ $1 -eq $2 ]; then
+       echo "two numbers are the same"
+       exit 1
+fi
+
+
+#gcd script
+
+        m=$1
+
+if [ $2 -lt $m ]
+then
+	m=$2
+fi
+
+
+while [ $m -ne 0 ]
 do
-	x=`expr $a % $m`
-	y=`expr $b % $m`
+	x=`expr $1 % $m`
+	y=`expr $2 % $m`
 
 	
-	#実行し最大公約数gcdを算出する
-	if [ $x -eq 0 -a $y -eq 0 ]
-	then
-
-		#2つの数字の最大公約数を算出する
-		echo gcd of $a and $b is $m
+	
+if [ $x -eq 0 -a $y -eq 0 ]
+then
+	
+	echo gcd of $1 and $2 is $m
 		break
 	fi
 	m=`expr $m - 1`

@@ -1,21 +1,25 @@
 #!/bin/bash
 
 
-./gcd_cal.sh a b > /tmp/$$-result
+tmp=/tmp/$$
+echo "input 2 argments" > $tmp-args
+echo "two numbers are the same" > $tmp-same
 
 
-#引数の数をチェック（２個かどうか）
-if [ $#! = 1 ]; then
-    echo "args count error!" > /tmp/$$-ans
-　　exit 1
-else
-    echo "OK"
-fi
+ERROR_EXIT() {
+   echo "$1" >&2
+   rm -f $tmp-*
+   exit 1
+}
 
-  
-#入力した引数が同じ数値でないかどうか
-if [ $1 -eq $2 ]; then
-     echo "数字が重複しています。違う数値を入れて下さい" > /tmp/$$-ans
-　 exit 1
-fi
 
+#テスト１引数の数をチェック（２個かどうか）
+./gcd_cal.sh $1 > $tmp-ans && ERROR_EXIT "error in test1-1"
+diff $tmp-ans $tmp-args || ERROR_EXIT "error in test1-2"
+ 
+
+
+#テスト２入力した引数が同じ数値でないかどうか
+./gcd_cal.sh [$1 -eq $2] > $tmp-ans
+diff $tmp-ans $tmp-same || ERROR_EXIT "error in test2"
+   
