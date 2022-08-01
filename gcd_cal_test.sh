@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
+tmp=/tmp/$$
+
+
 ERROR_EXIT() {
    echo "$1" >&2
    rm -f $tmp-*
    exit 1
 }
-
-
-tmp=/tmp/$$
 
 
 ./gcd_cal.sh > $tmp-result
