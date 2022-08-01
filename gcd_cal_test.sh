@@ -19,5 +19,5 @@ diff $tmp-same $tmp-result || ERROR_EXIT "error in test2"
 
 
 
-rm -f /$tmp-*
+rm -f $tmp-*
    
