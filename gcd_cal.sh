@@ -3,7 +3,7 @@
 
 #引数の数が２でない場合
 if [ $# -ne 2 ]; then
-       echo "input 2 argments" 1>&2
+       echo "input 2 argments"
        exit 1
 fi
 
