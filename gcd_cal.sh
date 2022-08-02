@@ -8,7 +8,7 @@ if [ $# -ne 2 ]; then
 fi
 
 #同じ数字かどうか
-if [ $1 -eq $2 ]; then
+if [ "$1" -eq "$2" ]; then
        echo "two numbers are the same"
        exit 1
 fi
@@ -18,13 +18,13 @@ fi
 
         m=$1
 
-if [ $2 -lt $m ]
+if [ "$2" -lt "$m" ]
 then
 	m=$2
 fi
 
 
-while [ $m -ne 0 ]
+while [ "$m" -ne 0 ]
 do
 	x=`expr $1 % $m`
 	y=`expr $2 % $m`
