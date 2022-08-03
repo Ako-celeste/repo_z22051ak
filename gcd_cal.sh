@@ -8,7 +8,12 @@ if [ $# -ne 2 ]; then
 fi
 
 #同じ数字かどうか
-if [ "$1" -eq "$2" ]; then
+
+NUM1=$1
+NUM2=$2
+
+
+if [ "$NUM1" -eq "$NUM2" ]; then
        echo "two numbers are the same"
        exit 1
 fi
@@ -16,26 +21,27 @@ fi
 
 #gcd script
 
-        m=$1
+        m=$NUM1
 
-if [ "$2" -lt "$m" ]
+if [ "$NUM2" -lt "$m" ]
 then
-	m=$2
+
+	m=$NUM2
 fi
 
 
 while [ "$m" -ne 0 ]
 do
-	x=$(expr "$1" % "$m")
-	y=$(expr "$2" % "$m")
+	x=$(expr "$NUM1" % "$m")
+	y=$(expr "$NUM2" % "$m")
 
 	
 	
 if [ "$x" -eq 0 -a "$y" -eq 0 ]
 then
 	
-	echo gcd of "$1" and "$2" is "$m"
-		break
+	echo gcd of "$NUM1" and "$NUM2" is "$m"
+             break
 	fi
 	m=$(expr "$m" - 1)
 
