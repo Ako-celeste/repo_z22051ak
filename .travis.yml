@@ -1,7 +1,7 @@
 language : bash
+
 script :
     - echo "travis CIでテスト開始"
     - ./gcd_cal_test.sh
 
-#Fail if any of these files have warnings
-    - shellcheck myscripts/*.sh
+
